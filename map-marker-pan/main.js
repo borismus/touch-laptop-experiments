@@ -35,9 +35,9 @@ document.addEventListener("mousemove", function(e) {
 window.addEventListener("mousewheel", function(event) {
   var dy = event.wheelDeltaY;
   console.log('zoom');
-  if (dy < 0) {
+  if (dy > 0) {
     zoomFactor = zoomFactor * 0.95;
-  } else if (dy > 0) {
+  } else if (dy < 0) {
     zoomFactor = zoomFactor * 1.05;
   }
   console.log('zoomed to', zoomFactor);
