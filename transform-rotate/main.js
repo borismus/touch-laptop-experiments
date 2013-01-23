@@ -24,9 +24,9 @@ function initialize() {
   window.addEventListener('mousemove', onmousemove);
 
   // Handle touch screen events.
-  window.addEventListener('touchstart', ontouchstart);
-  window.addEventListener('touchmove', ontouchmove);
-  window.addEventListener('touchend', ontouchend);
+  document.body.addEventListener('touchstart', ontouchstart);
+  document.body.addEventListener('touchmove', ontouchmove);
+  document.body.addEventListener('touchend', ontouchend);
 
   window.addEventListener('click', onclick);
 }
