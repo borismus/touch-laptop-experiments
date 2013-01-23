@@ -123,6 +123,7 @@ function ontouchmove(e) {
   e.preventDefault();
 }
 function ontouchend(e) {
+  e.preventDefault();
   // If the target is the current target,
   if (e.target == activeObject) {
     activeObject = null;
