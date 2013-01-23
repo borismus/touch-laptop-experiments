@@ -21,9 +21,9 @@ function onmousewheel(event) {
   var dy = event.wheelDeltaY;
   console.log('mousewheel', dx, dy);
 
-  if (dy < 0) {
+  if (dy > 0) {
     zoomFactor = zoomFactor * 0.9;
-  } else if (dy > 0) {
+  } else if (dy < 0) {
     zoomFactor = zoomFactor * 1.1;
   }
   zoom(zoomFactor);
@@ -45,10 +45,17 @@ function zoom(factor) {
 
 function ontouchstart(e) {
   // See if target is the object. If it is, set the target.
-  console.log(e.target);
+  if (e.target.id == 'object') {
+    activeObject = e.target;
+    console.log('Set active object');
+  }
 }
 function ontouchmove(e) {
 }
 function ontouchend(e) {
   // If the target is the current target,
+  if (e.target == activeObject) {
+    activeObject = null;
+    console.log('Unset active object');
+  }
 }
