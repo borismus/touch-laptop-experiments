@@ -110,6 +110,7 @@ function translate(dx, dy) {
 }
 
 function ontouchstart(e) {
+  e.preventDefault();
   console.log('touchstart');
   // See if target is the object. If it is, set the target.
   if (e.target.id == 'object') {
