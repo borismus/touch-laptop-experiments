@@ -43,9 +43,12 @@ function zoom(factor) {
   scene.style.webkitTransform = 'scale(' + factor + ')';
 }
 
-function ontouchstart() {
+function ontouchstart(e) {
+  // See if target is the object. If it is, set the target.
+  console.log(e.target);
 }
-function ontouchmove() {
+function ontouchmove(e) {
 }
-function ontouchend() {
+function ontouchend(e) {
+  // If the target is the current target,
 }

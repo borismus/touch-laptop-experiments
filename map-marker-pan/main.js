@@ -6,7 +6,8 @@ function initialize() {
     zoom: zoomFactor,
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    scrollwheel: false
+    scrollwheel: false,
+    disableDoubleClickZoom: false
   }
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
