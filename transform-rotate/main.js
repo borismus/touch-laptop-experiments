@@ -121,6 +121,7 @@ function ontouchstart(e) {
 function ontouchmove(e) {
   // TODO: Implement dragging objects.
   e.preventDefault();
+  console.log('touchmove');
 }
 function ontouchend(e) {
   e.preventDefault();
