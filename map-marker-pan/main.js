@@ -1,9 +1,12 @@
+var zoomFactor = 4;
+
 function initialize() {
   var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
   var mapOptions = {
-    zoom: 4,
+    zoom: zoomFactor,
     center: myLatlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false
   }
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
@@ -28,3 +31,15 @@ document.addEventListener("mousemove", function(e) {
   console.log("movementX=" + movementX, "movementY=" + movementY);
   map.panBy(-movementX, -movementY)
 }, false);
+
+window.addEventListener("mousewheel", function(event) {
+  var dy = event.wheelDeltaY;
+  console.log('zoom');
+  if (dy < 0) {
+    zoomFactor = zoomFactor * 0.95;
+  } else if (dy > 0) {
+    zoomFactor = zoomFactor * 1.05;
+  }
+  console.log('zoomed to', zoomFactor);
+  map.setZoom(Math.round(zoomFactor));
+});
