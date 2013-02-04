@@ -2,12 +2,53 @@
 A prototype UI that turns into one suited to touchscreens as soon as you touch
 it, and back to a regular mouse UI as soon as you move the mouse.
 
-Things that happen moving from mouse to touch:
-
-- Increased touch target sizes.
-- Remove reliance on hover.
-- Add gesture support.
-- (Look for more inspiration in Tablet apps vs. Desktop apps).
-
+This prototype simply increases the size of all touch targets when in touch
+mode, and reduces them back when in mouse mode.
 -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<title>Button sizing for touch vs. mouse</title>
+<link href="default.css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<script src="main.js"></script>
+<script>
+</script>
+</head>
+<body onload="initialize()">
+
+<div class="container" style="text-align: center">
+  <div class="btn-group">
+    <a class="btn btn-mini" href="#" onclick="setRoot('http://www.placecage.com')">
+      Nicolas Cage
+    </a>
+    <a class="btn btn-mini" href="#" onclick="setRoot('http://www.placecage.com/c')">
+      Nicolas Cage (Crazy)
+    </a>
+    <a class="btn btn-mini" href="#" onclick="setRoot('http://www.fillmurray.com')">
+      Bill Murray
+    </a>
+  </div>
+
+  <div style="height: 20px;"></div>
+
+  <img id="main" src="http://www.placecage.com/800/599"/>
+
+  <div class="pagination pagination-mini pagination-centered">
+    <ul>
+      <li><a href="#" onclick="setIndex(0)">1</a></li>
+      <li><a href="#" onclick="setIndex(1)">2</a></li>
+      <li><a href="#" onclick="setIndex(2)">3</a></li>
+      <li><a href="#" onclick="setIndex(3)">4</a></li>
+      <li><a href="#" onclick="setIndex(4)">5</a></li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
 
