@@ -39,6 +39,10 @@ function initialize() {
 
 
   function changeMode(mode) {
+    // If we're already in the desired mode, do nothing.
+    if (currentMode == mode) {
+      return;
+    }
     currentMode = mode;
     if (mode == Modes.TOUCH) {
       // Make buttons bigger!
