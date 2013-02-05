@@ -53,7 +53,7 @@ function onmousemove(event) {
   var dx = event.webkitMovementX;
   var dy = event.webkitMovementY;
   // TODO: Get rid of this once the ridiculous mousemove goes away.
-  if (dx <= -10000 || dy <= -10000) {
+  if (dx <= -10000 || dy <= -10000 || dx > 10000 || dy > 10000) {
     return;
   }
   console.log('mousemove', dx, dy);
@@ -107,7 +107,7 @@ function scale(dy) {
 }
 
 function rotate(dx, dy) {
-  angle += (dx + dy) * 0.05;
+  angle += (dx + dy) * 0.5;
   console.log('angle is now', angle);
 
   setObjectTransform();
