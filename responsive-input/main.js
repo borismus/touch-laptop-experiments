@@ -12,15 +12,14 @@ function initialize() {
   // Start with mouse mode by default.
   changeMode(Modes.MOUSE);
 
-  window.addEventListener('touchstart', function() {
+  window.addEventListener('touchstart', function(e) {
     // Now we're in touch mode.
     changeMode(Modes.TOUCH);
-    console.log('touchstart');
+    e.preventDefault();
   });
   window.addEventListener('mousemove', function() {
     // Now we're in mouse mode.
     changeMode(Modes.MOUSE);
-    console.log('mousemove');
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
