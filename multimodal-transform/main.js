@@ -50,6 +50,10 @@ function onmousewheel(event) {
 function onmousemove(event) {
   var dx = event.webkitMovementX;
   var dy = event.webkitMovementY;
+  // TODO: Get rid of this once the ridiculous mousemove goes away.
+  if (dx <= -10000 || dy <= -10000) {
+    return;
+  }
   console.log('mousemove', dx, dy);
 
   if (activeObject) {
