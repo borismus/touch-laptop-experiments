@@ -131,6 +131,8 @@ function ontouchmove(e) {
   if (activeObject) {
     var touch = e.targetTouches[0];
     translate(touch.pageX - touchX, touch.pageY - touchY);
+    touchX = touch.pageX;
+    touchY = touch.pageY;
   }
 }
 function ontouchend(e) {
