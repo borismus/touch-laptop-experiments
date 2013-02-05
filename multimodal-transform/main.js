@@ -37,6 +37,7 @@ function initialize() {
 }
 
 function onmousewheel(event) {
+  document.body.webkitRequestPointerLock();
   var dx = event.wheelDeltaX;
   var dy = event.wheelDeltaY;
   console.log('mousewheel', dx, dy);
@@ -46,10 +47,10 @@ function onmousewheel(event) {
   } else {
     //zoom(dy);
   }
-
 }
 
 function onmousemove(event) {
+  document.body.webkitRequestPointerLock();
   var dx = event.webkitMovementX;
   var dy = event.webkitMovementY;
   // TODO: Get rid of this once the ridiculous mousemove goes away.
