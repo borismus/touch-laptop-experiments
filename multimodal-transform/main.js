@@ -10,6 +10,9 @@ var rY = 0;
 var angle = 0;
 
 var activeObject = null;
+// Original positions of the finger.
+var fingerX = -1;
+var fingerY = -1;
 
 function initialize() {
   scene = document.querySelector('#scene');
@@ -39,7 +42,7 @@ function onmousewheel(event) {
   if (activeObject) {
     scale(dy);
   } else {
-    zoom(dy);
+    //zoom(dy);
   }
 
 }
@@ -52,7 +55,7 @@ function onmousemove(event) {
   if (activeObject) {
     rotate(dx, dy);
   } else {
-    pan(dx, dy);
+    //pan(dx, dy);
   }
 }
 
@@ -115,6 +118,9 @@ function ontouchstart(e) {
   // See if target is the object. If it is, set the target.
   if (e.target.id == 'object') {
     activeObject = e.target;
+    var touch = e.targetTouches[0];
+    touchX = touch.pageX;
+    touchY = touch.pageY;
     console.log('Set active object');
   }
 }
@@ -122,6 +128,10 @@ function ontouchmove(e) {
   // TODO: Implement dragging objects.
   e.preventDefault();
   console.log('touchmove');
+  if (activeObject) {
+    var touch = e.targetTouches[0];
+    translate(touch.pageX - touchX, touch.pageY - touchY);
+  }
 }
 function ontouchend(e) {
   e.preventDefault();
