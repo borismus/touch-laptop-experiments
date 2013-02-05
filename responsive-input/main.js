@@ -53,6 +53,7 @@ function initialize() {
         button.classList.add('btn-mini');
       });
     }
+    console.log('Changed modes to', mode);
   }
 
 }
