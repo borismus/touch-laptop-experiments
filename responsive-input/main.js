@@ -8,6 +8,7 @@ function initialize() {
     MOUSE: 2
   };
   var currentMode = null;
+  var isTouching = false;
 
   // Start with mouse mode by default.
   changeMode(Modes.MOUSE);
@@ -16,15 +17,18 @@ function initialize() {
     // Now we're in touch mode.
     changeMode(Modes.TOUCH);
     console.log('touchstart');
-    e.preventDefault();
+    isTouching = true;
   });
-  window.addEventListener('touchmove', function(e) {
+  window.addEventListener('touchend', function(e) {
     e.preventDefault();
-    console.log('touchmove');
+    console.log('touchend');
+    isTouching = false;
   });
   window.addEventListener('mousemove', function() {
     // Now we're in mouse mode.
-    changeMode(Modes.MOUSE);
+    if (!isTouching) {
+      changeMode(Modes.MOUSE);
+    }
     console.log('mousemove');
   });
   window.addEventListener('keydown', function(e) {
