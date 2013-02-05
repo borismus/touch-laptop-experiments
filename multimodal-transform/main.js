@@ -16,6 +16,8 @@ var fingerY = -1;
 var mouseX = -1;
 var mouseY = -1;
 
+var ZOOM_DELTA = 0.02;
+
 function initialize() {
   scene = document.querySelector('#scene');
   object = document.querySelector('#object');
@@ -76,9 +78,9 @@ function setSceneTransform() {
 
 function zoom(dy) {
   if (dy > 0) {
-    zoomFactor = zoomFactor * 0.98;
+    zoomFactor = zoomFactor * (1-ZOOM_DELTA);
   } else if (dy < 0) {
-    zoomFactor = zoomFactor * 1.02;
+    zoomFactor = zoomFactor * (1+ZOOM_DELTA);
   }
   setSceneTransform();
 }
