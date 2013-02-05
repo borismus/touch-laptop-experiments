@@ -67,7 +67,7 @@ function onmousemove(event) {
 }
 
 function onclick(event) {
-  //document.body.webkitRequestPointerLock();
+  document.body.webkitRequestPointerLock();
 }
 
 function setSceneTransform() {
