@@ -108,6 +108,7 @@ function scale(dy) {
 
 function rotate(dx, dy) {
   angle += (dx + dy) * 0.05;
+  console.log('angle is now', angle);
 
   setObjectTransform();
 }
