@@ -16,9 +16,11 @@ function initialize() {
     // Now we're in touch mode.
     changeMode(Modes.TOUCH);
     console.log('touchstart');
+    e.preventDefault();
   });
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
+    console.log('touchmove');
   });
   window.addEventListener('mousemove', function() {
     // Now we're in mouse mode.
