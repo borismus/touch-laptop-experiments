@@ -13,6 +13,8 @@ var activeObject = null;
 // Original positions of the finger.
 var fingerX = -1;
 var fingerY = -1;
+var mouseX = -1;
+var mouseY = -1;
 
 function initialize() {
   scene = document.querySelector('#scene');
@@ -105,7 +107,7 @@ function scale(dy) {
 }
 
 function rotate(dx, dy) {
-  angle += (dx + dy) * 0.5;
+  angle += (dx + dy) * 0.05;
 
   setObjectTransform();
 }
