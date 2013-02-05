@@ -16,6 +16,8 @@ function initialize() {
     // Now we're in touch mode.
     changeMode(Modes.TOUCH);
     console.log('touchstart');
+  });
+  window.addEventListener('touchmove', function(e) {
     e.preventDefault();
   });
   window.addEventListener('mousemove', function() {
