@@ -44,7 +44,7 @@ function onmousewheel(event) {
   if (activeObject) {
     scale(dy);
   } else {
-    zoom(dy/5);
+    zoom(dy);
   }
 }
 
@@ -76,9 +76,9 @@ function setSceneTransform() {
 
 function zoom(dy) {
   if (dy > 0) {
-    zoomFactor = zoomFactor * 0.9;
+    zoomFactor = zoomFactor * 0.95;
   } else if (dy < 0) {
-    zoomFactor = zoomFactor * 1.1;
+    zoomFactor = zoomFactor * 1.05;
   }
   setSceneTransform();
 }
