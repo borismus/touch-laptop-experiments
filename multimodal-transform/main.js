@@ -44,7 +44,7 @@ function onmousewheel(event) {
   if (activeObject) {
     scale(dy);
   } else {
-    zoom(dy);
+    zoom(dy/5);
   }
 }
 
