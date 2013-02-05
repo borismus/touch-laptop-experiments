@@ -76,9 +76,9 @@ function setSceneTransform() {
 
 function zoom(dy) {
   if (dy > 0) {
-    zoomFactor = zoomFactor * 0.95;
+    zoomFactor = zoomFactor * 0.98;
   } else if (dy < 0) {
-    zoomFactor = zoomFactor * 1.05;
+    zoomFactor = zoomFactor * 1.02;
   }
   setSceneTransform();
 }
