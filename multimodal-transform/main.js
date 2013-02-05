@@ -61,7 +61,7 @@ function onmousemove(event) {
   if (activeObject) {
     rotate(dx, dy);
   } else {
-    //pan(dx, dy);
+    pan(dx, dy);
   }
 }
 
