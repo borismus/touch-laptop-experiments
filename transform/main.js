@@ -3,8 +3,8 @@ var panX = 0;
 var panY = 0;
 
 var scaleFactor = 1;
-var tX = 0;
-var tY = 0;
+var tX = 100;
+var tY = 100;
 var rX = 0;
 var rY = 0;
 var angle = 0;
@@ -36,6 +36,8 @@ function initialize() {
   document.body.addEventListener('touchend', ontouchend);
 
   window.addEventListener('click', onclick);
+
+  setObjectTransform();
 }
 
 function onmousewheel(event) {
@@ -53,8 +55,8 @@ function onmousewheel(event) {
 function onmousemove(event) {
   var dx = event.webkitMovementX;
   var dy = event.webkitMovementY;
-  // TODO: Get rid of this once the ridiculous mousemove goes away.
-  if (dx <= -10000 || dy <= -10000 || dx > 10000 || dy > 10000) {
+  // TODO: Get rid of this once crbug.com/174358 is fixed.
+  if (Math.abs(dx) >= 10000 || Math.abs(dy) >= 10000) {
     return;
   }
   console.log('mousemove', dx, dy);
@@ -91,11 +93,26 @@ function pan(dx, dy) {
   setSceneTransform();
 }
 
-function setObjectTransform() {
+function setObjectTransform(id) {
   var scale = 'scale(' + scaleFactor + ')';
   var translate = 'translate(' + tX + 'px, ' + tY + 'px)';
   var rotate = 'rotate(' + angle + 'deg)';
   object.style.webkitTransform = [translate, rotate, scale].join(' ');
+}
+
+var timer = null;
+function temporarilySetIcon(url) {
+  var icon = document.querySelector('#transform');
+  icon.style.display = 'block';
+  icon.src = url;
+  if (timer) {
+    clearTimeout(timer);
+  }
+  timer = setTimeout(clearIcon, 300);
+}
+function clearIcon() {
+  var icon = document.querySelector('#transform');
+  icon.style.display = 'none';
 }
 
 function scale(dy) {
@@ -105,6 +122,7 @@ function scale(dy) {
     scaleFactor = scaleFactor * 1.1;
   }
   setObjectTransform();
+  temporarilySetIcon('img/scale.png');
 }
 
 function rotate(dx, dy) {
@@ -112,6 +130,7 @@ function rotate(dx, dy) {
   console.log('angle is now', angle);
 
   setObjectTransform();
+  temporarilySetIcon('img/rotate.png');
 }
 
 function translate(dx, dy) {
@@ -136,7 +155,7 @@ function ontouchmove(e) {
   // TODO: Implement dragging objects.
   e.preventDefault();
   console.log('touchmove');
-  if (activeObject) {
+  if (e.target == activeObject) {
     var touch = e.targetTouches[0];
     translate(touch.pageX - touchX, touch.pageY - touchY);
     touchX = touch.pageX;
