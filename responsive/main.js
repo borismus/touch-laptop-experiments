@@ -1,7 +1,7 @@
 function initialize() {
 
   var pagination = document.querySelector('.pagination');
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.btn'));
+  var buttons = document.querySelector('.btn-group');
 
   var Modes = {
     TOUCH: 1,
@@ -46,16 +46,12 @@ function initialize() {
     currentMode = mode;
     if (mode == Modes.TOUCH) {
       // Make buttons bigger!
-      pagination.classList.remove('pagination-mini');
-      buttons.forEach(function(button) {
-        button.classList.remove('btn-mini');
-      });
+      pagination.classList.add('big');
+      buttons.classList.add('big');
     } else if (mode == Modes.MOUSE) {
       // Make buttons smaller!
-      pagination.classList.add('pagination-mini');
-      buttons.forEach(function(button) {
-        button.classList.add('btn-mini');
-      });
+      pagination.classList.remove('big');
+      buttons.classList.remove('big');
     }
     console.log('Changed modes to', mode);
   }

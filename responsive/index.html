@@ -14,6 +14,17 @@ mode, and reduces them back when in mouse mode.
 <meta charset="utf-8">
 <title>Button sizing for touch vs. mouse</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<style>
+.big {
+  -webkit-transform: scale(2);
+}
+.pagination, .btn-group {
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+}
+.btn-group {
+  margin-top: 20px;
+}
+</style>
 <script src="main.js"></script>
 <script>
 </script>
