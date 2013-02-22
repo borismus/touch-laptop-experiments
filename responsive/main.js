@@ -26,7 +26,7 @@ function initialize() {
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
   });
-  window.addEventListener('mousemove', function() {
+  window.addEventListener('mousemove', function(e) {
     // Now we're in mouse mode.
     if (!isTouching) {
       changeMode(Modes.MOUSE);
