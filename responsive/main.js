@@ -30,8 +30,10 @@ function initialize() {
       e.preventDefault();
       return;
     }
-    changeMode(Modes.MOUSE);
-    console.log('mousemove');
+    if (!isTouching) {
+      changeMode(Modes.MOUSE);
+      console.log('mousemove');
+    }
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
