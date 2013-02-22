@@ -22,7 +22,6 @@ function initialize() {
   window.addEventListener('touchend', function(e) {
     console.log('touchend');
     isTouching = false;
-    e.preventDefault();
   });
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
