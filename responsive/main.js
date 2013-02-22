@@ -18,7 +18,6 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
-    e.preventDefault();
   });
   window.addEventListener('mousemove', function(e) {
     console.log(e.webkitMovementX);
