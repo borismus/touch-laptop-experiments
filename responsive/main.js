@@ -18,7 +18,6 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
-    e.preventDefault();
   });
   window.addEventListener('touchend', function(e) {
     console.log('touchend');
@@ -33,6 +32,7 @@ function initialize() {
       changeMode(Modes.MOUSE);
     }
     console.log('mousemove');
+    e.preventDefault();
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
