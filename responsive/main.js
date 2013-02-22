@@ -23,8 +23,8 @@ function initialize() {
     console.log('touchmove');
     e.preventDefault();
   });
-  window.addEventListener('touchend', function(e) {
-    isTouching = false;
+  window.addEventListener('mousedown', function(e) {
+    isTouching = true;
   });
   window.addEventListener('mousemove', function(e) {
     console.log(e.webkitMovementX);
