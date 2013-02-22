@@ -26,12 +26,12 @@ function initialize() {
   });
   window.addEventListener('touchmove', function(e) {
   });
-  window.addEventListener('mousedown', function(e) {
+  window.addEventListener('mousemove', function(e) {
     // Now we're in mouse mode.
     if (!isTouching) {
       changeMode(Modes.MOUSE);
     }
-    console.log('mousedown');
+    console.log('mousemove');
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
