@@ -26,13 +26,12 @@ function initialize() {
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
   });
-  window.addEventListener('mousemove', function(e) {
+  window.addEventListener('mousedown', function(e) {
     // Now we're in mouse mode.
     if (!isTouching) {
       changeMode(Modes.MOUSE);
     }
-    console.log('mousemove');
-    e.preventDefault();
+    console.log('mousedown');
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
