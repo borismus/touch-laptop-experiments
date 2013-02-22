@@ -19,6 +19,10 @@ function initialize() {
     console.log('touchstart');
     isTouching = true;
   });
+  window.addEventListener('touchmove', function(e) {
+    console.log('touchmove');
+    e.preventDefault();
+  });
   window.addEventListener('mousemove', function(e) {
     console.log(e.webkitMovementX);
     // TODO: Get rid of this once crbug.com/174358 is fixed.
