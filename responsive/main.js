@@ -20,9 +20,9 @@ function initialize() {
     isTouching = true;
     e.preventDefault();
   });
-  window.addEventListener('mousedown', function(e) {
+  window.addEventListener('mousemove', function(e) {
     changeMode(Modes.MOUSE);
-    console.log('mousedown');
+    console.log('mousemove');
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
