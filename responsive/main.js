@@ -24,7 +24,7 @@ function initialize() {
     e.preventDefault();
   });
   window.addEventListener('mousedown', function(e) {
-    isTouching = true;
+    isTouching = false;
   });
   window.addEventListener('mousemove', function(e) {
     console.log(e.webkitMovementX);
