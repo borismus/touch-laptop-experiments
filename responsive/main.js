@@ -18,19 +18,11 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
+    e.preventDefault();
   });
-  window.addEventListener('touchend', function(e) {
-    console.log('touchend');
-    isTouching = false;
-  });
-  window.addEventListener('touchmove', function(e) {
-  });
-  window.addEventListener('mousemove', function(e) {
-    // Now we're in mouse mode.
-    if (!isTouching) {
-      changeMode(Modes.MOUSE);
-    }
-    console.log('mousemove');
+  window.addEventListener('mousedown', function(e) {
+    changeMode(Modes.MOUSE);
+    console.log('mousedown');
   });
   window.addEventListener('keydown', function(e) {
     if (e.keyCode == 13) { // Enter.
