@@ -23,6 +23,9 @@ function initialize() {
     console.log('touchmove');
     e.preventDefault();
   });
+  window.addEventListener('touchend', function(e) {
+    isTouching = false;
+  });
   window.addEventListener('mousemove', function(e) {
     console.log(e.webkitMovementX);
     // TODO: Get rid of this once crbug.com/174358 is fixed.
