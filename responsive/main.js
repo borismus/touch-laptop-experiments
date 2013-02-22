@@ -74,5 +74,7 @@ function setRoot(url) {
 }
 
 function setUrl() {
-  document.querySelector('img#main').src = root + '/' + 800 + '/' + (600 + index*2);
+  console.log('url set to', url);
+  var url = root + '/' + 800 + '/' + (600 + index*2);
+  document.querySelector('img#main').src = url;
 }
