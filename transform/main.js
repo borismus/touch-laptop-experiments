@@ -158,7 +158,9 @@ function ontouchmove(e) {
   console.log('touchmove');
   if (e.target == activeObject) {
     var touch = e.targetTouches[0];
-    translate(touch.pageX - touchX, touch.pageY - touchY);
+    var dx = touch.pageX - touchX;
+    var dy = touch.pageY - touchY;
+    translate(dx / zoomFactor, dy / zoomFactor);
     touchX = touch.pageX;
     touchY = touch.pageY;
   }
