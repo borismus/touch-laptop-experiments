@@ -21,6 +21,11 @@ function initialize() {
     e.preventDefault();
   });
   window.addEventListener('mousemove', function(e) {
+    // TODO: Get rid of this once crbug.com/174358 is fixed.
+    if (Math.abs(e.webkitMovementX) >= 10000) {
+      e.preventDefault();
+      return;
+    }
     changeMode(Modes.MOUSE);
     console.log('mousemove');
   });
