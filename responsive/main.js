@@ -18,10 +18,12 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
+    e.stopEventPropagation();
   });
   window.addEventListener('touchend', function(e) {
     console.log('touchend');
     isTouching = false;
+    e.stopEventPropagation();
   });
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
