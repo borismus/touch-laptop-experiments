@@ -18,12 +18,11 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
-    e.stopEventPropagation();
   });
   window.addEventListener('touchend', function(e) {
     console.log('touchend');
     isTouching = false;
-    e.stopEventPropagation();
+    e.preventDefault();
   });
   window.addEventListener('touchmove', function(e) {
     e.preventDefault();
@@ -75,7 +74,7 @@ function setRoot(url) {
 }
 
 function setUrl() {
-  console.log('url set to', url);
   var url = root + '/' + 800 + '/' + (600 + index*2);
+  console.log('url set to', url);
   document.querySelector('img#main').src = url;
 }
