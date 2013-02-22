@@ -18,13 +18,13 @@ function initialize() {
     changeMode(Modes.TOUCH);
     console.log('touchstart');
     isTouching = true;
+    e.preventDefault();
   });
   window.addEventListener('touchend', function(e) {
     console.log('touchend');
     isTouching = false;
   });
   window.addEventListener('touchmove', function(e) {
-    e.preventDefault();
   });
   window.addEventListener('mousedown', function(e) {
     // Now we're in mouse mode.
