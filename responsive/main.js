@@ -20,7 +20,6 @@ function initialize() {
     isTouching = true;
   });
   window.addEventListener('touchend', function(e) {
-    e.preventDefault();
     console.log('touchend');
     isTouching = false;
   });

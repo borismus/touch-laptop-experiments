@@ -16,7 +16,7 @@ var fingerY = -1;
 var mouseX = -1;
 var mouseY = -1;
 
-var ZOOM_DELTA = 0.02;
+var ZOOM_DELTA = 0.03;
 
 function initialize() {
   scene = document.querySelector('#scene');
@@ -64,7 +64,8 @@ function onmousemove(event) {
   if (activeObject) {
     rotate(dx, dy);
   } else {
-    pan(dx, dy);
+    console.log(zoomFactor);
+    pan(dx / zoomFactor, dy / zoomFactor);
   }
 }
 
