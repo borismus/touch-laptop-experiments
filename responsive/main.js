@@ -23,6 +23,9 @@ function initialize() {
     console.log('touchend');
     isTouching = false;
   });
+  window.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+  });
   window.addEventListener('mousemove', function() {
     // Now we're in mouse mode.
     if (!isTouching) {
